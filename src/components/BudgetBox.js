@@ -1,6 +1,7 @@
 import { useContext } from 'react'
-import { TransactionsContext } from '../contexts/TransactionsReducer'
+import { TransactionsContext } from '../contexts/TransactionsContext'
 import { totalIncome, totalExpence, totalBalanceJsx } from '../utils/transactionsUtils'
+import { numberWithCommas } from '../utils/helpers'
 
 function BudgetBox() {
     const { transactions } = useContext(TransactionsContext);
@@ -16,13 +17,13 @@ function BudgetBox() {
                 <div className="flex-grow text-center border-r">
                     <h3 className="text-sm">INCOME</h3>
                     <span className="text-green-500 text-lg">
-                        ${totalIncome(transactions)}
+                        ${numberWithCommas(totalIncome(transactions))}
                     </span>
                 </div>
                 <div className="flex-grow text-center">
                     <h3 className="text-sm">EXPENSE</h3>
                     <span className="text-red-800 text-lg">
-                        ${Math.abs(totalExpence(transactions))}
+                        ${numberWithCommas(Math.abs(totalExpence(transactions)))}
                     </span>
                 </div>
             </div>

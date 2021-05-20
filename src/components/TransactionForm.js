@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react'
 import { v4 as uuidv4 } from 'uuid';
-import { TransactionsContext } from '../contexts/TransactionsReducer'
+import { TransactionsContext } from '../contexts/TransactionsContext'
 
 function TransactionForm() {
 
@@ -18,7 +18,7 @@ function TransactionForm() {
             return
         }
 
-        const transaction = { id: uuidv4(), text, amount: parseInt(amount) };
+        const transaction = { _id: uuidv4(), text, amount: parseInt(amount) };
 
         dispatch({
             type: 'ADD_TRANSACTION',

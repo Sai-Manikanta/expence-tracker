@@ -1,3 +1,5 @@
+import { numberWithCommas } from './helpers'
+
 // Income calculation
 export const totalIncome = (transactions) => {
     let total = 0;
@@ -26,13 +28,13 @@ export const totalBalanceJsx = (income, expence) => {
     if(balance < 0){
         return (
             <span className="text-2xl text-red-800 font-medium">
-                -${Math.abs(balance)}
+                -${numberWithCommas(Math.abs(balance))}
             </span>
         )
     } else {
         return(   
             <span className="text-2xl text-green-500 font-medium">
-                ${balance}
+                ${numberWithCommas(balance)}
             </span>
         )
     }
